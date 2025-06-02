@@ -1,0 +1,70 @@
+# 🏎️ F1 Predictor – Reboot Edition
+
+Un projet de Machine Learning visant à prédire les résultats des Grands Prix de Formule 1, du modèle au déploiement puis à l’intégration web.
+
+---
+
+## 🚧 Étape 1 – Construction du modèle (core ML)
+
+### 🎯 Objectif
+Prédire les résultats de course (classement final, points, podiums) à partir de données historiques et temps réel.
+
+### 📥 Données
+- **Sources** :
+  - [FastF1](https://theoehrly.github.io/Fast-F1/) – télémétrie, météo, essais, qualifs, course
+  - [Ergast API](http://ergast.com/mrd/) – historique des classements, points, infos pilotes et écuries
+- **Cibles** :
+  - `positionOrder`, `points`, `podium = (positionOrder ≤ 3)`
+- **Période ciblée** :
+  - 2018 à aujourd’hui (données plus stables et exploitables)
+
+### 🏗️ Feature Engineering
+- Différences performance qualif/course
+- Moyennes glissantes pilote et écurie
+- Type de circuit (urbain, permanent, mixte)
+- Historique par pilote et par circuit
+- Conditions météo (si disponibles)
+
+### 🔮 Modélisation
+- **Algorithmes** :
+  - `RandomForest`, `XGBoost`, `LogisticRegression`, `CatBoost`
+- **Tâches** :
+  - Régression : prédiction de points ou de position
+  - Classification : podium, top 10, DNF, etc.
+
+---
+
+## 🚀 Étape 2 – Déploiement du modèle
+
+### 📦 Packaging
+- Export du modèle : `joblib`, `pickle`, ou `MLflow`
+- Intégration dans un pipeline de prédiction avec preprocessing
+
+### 🌐 API REST
+- Framework : `FastAPI`
+- Endpoints :
+  - `/predict` : input = données du week-end ; output = classement projeté
+- Tests : `pytest`, `httpx`, `coverage`
+
+### ☁️ Hosting
+- Solutions simples : Render, Railway, Heroku (dev)
+- Solutions scalables : AWS Lambda, GCP Cloud Run, Docker + CI/CD
+
+---
+
+## 🖥️ Étape 3 – Intégration Web App
+
+### Front-End
+- MVP : `Streamlit`
+- Version évoluée : `React` ou `Next.js`
+
+### Fonctions prévues
+- Sélection du circuit, affichage des prédictions
+- Simulation avec sliders (météo, qualif, etc.)
+- Visualisation : classement projeté, probabilité podium, historique pilote
+
+---
+
+## 📌 Notes
+
+Ce projet est orienté **modèle-first**. L’UI ne viendra qu’une fois un modèle fiable est opérationnel. Objectif : portfolio + éventuel usage public

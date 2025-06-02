@@ -1,0 +1,113 @@
+🏎️ F1 Predictor – Contexte du Projet
+
+🎯 Objectif
+
+Développer un modèle de Machine Learning pour prédire les résultats des Grands Prix de Formule 1. Le projet est orienté "model-first" : la priorité est donnée à la construction d'un modèle robuste avant d'envisager l'interface ou la mise en production.
+
+Le projet se découpe en trois phases :
+
+Construction du modèle (collecte de données, feature engineering, entraînement)
+
+Déploiement du modèle (API, containerisation, hébergement)
+
+Intégration à une web app (UI, interactions, visualisation)
+
+🧱 Cadre technique
+
+Langage principal : Python 3.10+
+
+Librairies clés : pandas, numpy, scikit-learn, xgboost, catboost, fastapi, joblib
+
+Suivi des expériences : MLflow (optionnel)
+
+Containerisation : Docker (optionnel)
+
+🗂️ Plan du projet
+
+Étape 1 – Construction du modèle
+
+🔍 Données
+
+Sources principales :
+
+Ergast API : résultats historiques (qualifs, courses, pilotes, écuries)
+
+FastF1 : données plus détaillées (sector times, météo, telemetry)
+
+Cibles de prédiction :
+
+Classement final (positionOrder)
+
+Points marqués (points)
+
+Podium (classification binaire ou multi-classes)
+
+⚙️ Feature Engineering
+
+Données par course (qualifs, météo, type de circuit)
+
+Moyennes glissantes pilote/équipe
+
+Historique des performances sur le circuit
+
+Comparaison teammate vs pilote
+
+Variables ordinales : circuit, conditions météo, saison
+
+🔮 Modélisation
+
+Prototypes : RandomForest, XGBoost, CatBoost, Régression logistique
+
+Split : train/test ou leave-one-season-out
+
+Métriques : LogLoss, MAE, Accuracy @Top3, Ranking correlation
+
+Étape 2 – Déploiement du modèle
+
+📦 Packaging
+
+Export du modèle (joblib ou pickle)
+
+Pipeline complet : preprocessing + prédiction
+
+🔌 API REST
+
+Framework : FastAPI
+
+Endpoint principal : POST /predict
+
+Input : données d’un week-end de course
+
+Output : résultats projetés (classement, points, proba podium)
+
+☁️ Déploiement
+
+MVP : Render, Railway, Heroku
+
+Long terme : AWS Lambda / Cloud Run / Docker CI/CD
+
+Étape 3 – Intégration Web App
+
+🎛️ Front-end
+
+MVP : Streamlit
+
+Scalable : React ou Next.js + Appels à l’API
+
+Fonctions prévues
+
+Choix du circuit / course simulée
+
+Affichage dynamique des prédictions (classement projeté, podiums probables)
+
+Simulation (glissières pour conditions météo, position en qualif, etc.)
+
+🧠 Philosophie
+
+Itératif : On commence simple, on complexifie ensuite
+
+Minimaliste : pipeline modulaire, clair, facilement testable
+
+Reproductible : notebooks versionnés, datasets horodatés, prédictions tracées
+
+Public : but = portfolio + projet open-source ou partageable

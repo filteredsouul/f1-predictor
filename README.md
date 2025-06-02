@@ -1,6 +1,6 @@
 # 🏎️ F1 Predictor
 
-[![CI](https://github.com/username/f1-predictor/workflows/CI/badge.svg)](https://github.com/username/f1-predictor/actions)
+[![CI](https://github.com/filteredsouul/f1-predictor/workflows/CI/badge.svg)](https://github.com/filteredsouul/f1-predictor/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -11,21 +11,22 @@
 
 Développer un modèle de Machine Learning pour prédire les résultats des Grands Prix de Formule 1. Le projet est orienté "model-first" : la priorité est donnée à la construction d'un modèle robuste avant d'envisager l'interface ou la mise en production.
 
-## 🚀 Installation rapide
+## 🚀 Démarrage Ultra-Rapide (3 minutes)
 
 ```bash
-# Cloner le repository
-git clone https://github.com/username/f1-predictor.git
+# 1. Cloner et installer
+git clone https://github.com/filteredsouul/f1-predictor.git
 cd f1-predictor
+python scripts/setup_project.py
 
-# Créer un environnement virtuel
-python -m venv venv
+# 2. Activer l'environnement
 source venv/bin/activate  # Linux/Mac
-# ou venv\Scripts\activate  # Windows
 
-# Installer les dépendances
-pip install -r requirements.txt
+# 3. Commencer à développer
+python scripts/start_session.py
 ```
+
+📖 **Guide détaillé** : [QUICKSTART.md](QUICKSTART.md)
 
 ## 📊 Utilisation
 
@@ -69,6 +70,7 @@ f1-predictor/
 ├── api/                   # API REST FastAPI
 ├── web/                   # Interfaces utilisateur
 ├── notebooks/             # Exploration et prototypage
+├── scripts/               # Scripts d'automatisation
 └── docs/                  # Documentation
 ```
 
@@ -89,6 +91,27 @@ f1-predictor/
 - [ ] MVP Streamlit
 - [ ] Version React/Next.js
 - [ ] Simulation interactive
+
+## 🔄 Workflow de Développement
+
+### Sessions de Travail Automatisées
+
+```bash
+# 🚀 Début de session (2 minutes)
+python scripts/start_session.py
+
+# 💻 Pendant la session
+pytest tests/ -v              # Tests continus
+black src/ api/ tests/        # Formatage
+git add . && git commit -m "feat: ..."  # Commits fréquents
+
+# 🏁 Fin de session (3 minutes)
+python scripts/end_session.py
+```
+
+**📋 Guides détaillés :**
+- [Workflow de Session](docs/workflow-session.md) - Guide complet (15 min)
+- [QUICKSTART.md](QUICKSTART.md) - Démarrage rapide (3 min)
 
 ## 🔧 Développement
 
@@ -111,15 +134,40 @@ pre-commit install
 
 ## 📚 Documentation
 
-- [Installation](docs/installation.md)
-- [Guide d'utilisation](docs/usage.md)
-- [Documentation API](docs/api.md)
-- [Architecture du modèle](docs/model.md)
-- [Guide de déploiement](docs/deployment.md)
+| Guide | Description | Temps |
+|-------|-------------|-------|
+| [QUICKSTART.md](QUICKSTART.md) | Démarrage rapide | 3 min |
+| [Installation](docs/installation.md) | Guide d'installation détaillé | 10 min |
+| [Workflow](docs/workflow-session.md) | Sessions de travail | 15 min |
+| [Contribution](CONTRIBUTING.md) | Guide de contribution | 10 min |
+| [API](docs/api.md) | Documentation API | 5 min |
+| [Modèles](docs/model.md) | Architecture des modèles | 10 min |
 
 ## 🤝 Contribution
 
-Les contributions sont les bienvenues ! Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour plus de détails.
+Les contributions sont les bienvenues ! 
+
+### Démarrage Express
+1. **Fork** le repository
+2. **Clone** : `git clone https://github.com/votre-username/f1-predictor.git`
+3. **Setup** : `python scripts/setup_project.py`
+4. **Développer** : `python scripts/start_session.py`
+5. **Terminer** : `python scripts/end_session.py`
+6. **PR** : Créer une Pull Request
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour plus de détails.
+
+## 📊 Scripts d'Automatisation
+
+Le projet inclut des scripts pour automatiser les tâches répétitives :
+
+| Script | Usage | Description |
+|--------|-------|-------------|
+| `setup_project.py` | Installation initiale | Configure l'environnement complet |
+| `start_session.py` | Début de session | Prépare l'environnement de travail |
+| `end_session.py` | Fin de session | Nettoie, teste et sauvegarde |
+| `collect_data.py` | Collecte de données | Récupère les données F1 |
+| `train_model.py` | Entraînement | Lance l'entraînement des modèles |
 
 ## 📄 Licence
 
@@ -133,4 +181,6 @@ Ce projet est sous licence MIT. Voir [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
-⭐ N'hésitez pas à star le projet si vous le trouvez utile ! 
+⭐ N'hésitez pas à star le projet si vous le trouvez utile !
+
+🚀 **Prêt à commencer ?** → [QUICKSTART.md](QUICKSTART.md) 
